@@ -8,10 +8,16 @@ def get_ends(x, y, cx, cy, length):
         cos = 1 / math.sqrt(tan * tan + 1)
         sin = tan * cos
         return [x - length * 0.5 * cos, y - length * 0.5 * sin, x + length * 0.5 * cos, y + length * 0.5 * sin]
+    
+
+def is_defined(f, x, y):
+    try:
+        res = f(x, y)
+    except:
+        return False
+    return True
         
         
-
-
 def diff_one_form_field(x1, x2, y1, y2, move_x, move_y, f, g, length, filename, show_undefined_points=True):
     out = open(filename, 'w')
     x = x1
@@ -32,14 +38,6 @@ def diff_one_form_field(x1, x2, y1, y2, move_x, move_y, f, g, length, filename, 
         x += move_x
     out.close()
     
-
-def is_defined(f, x, y):
-    try:
-        res = f(x, y)
-    except:
-        return False
-    return True
-    
     
 def diff_eq_field(x1, x2, y1, y2, move_x, move_y, f, length, filename, show_undefined_points=True):
     out = open(filename, 'w')
@@ -59,16 +57,3 @@ def diff_eq_field(x1, x2, y1, y2, move_x, move_y, f, length, filename, show_unde
             y += move_y
         x += move_x
     out.close()
-    
-
-def fdx(x, y):
-    return 3 * x
-
-
-def fdy(x, y):
-    return 4 * y
-
-def der(x, y):
-    return -y / (2 * x)
-
-diff_eq_field(-2, 3, -2, 3, 1, 1, der, 0.5, 'out.txt', True)
