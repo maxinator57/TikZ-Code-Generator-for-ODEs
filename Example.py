@@ -1,4 +1,4 @@
-from TikzCodeGen import *
+from TikZCodeGen import *
 
 def fdx(x, y):
     return 3 * x
