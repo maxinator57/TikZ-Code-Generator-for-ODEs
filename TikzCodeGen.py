@@ -32,8 +32,7 @@ def diff_one_form_field(x1, x2, y1, y2, move_x, move_y, f, g, length, filename, 
                     out.write('\u005C' + 'filldraw[blue] (' + str(x) + ',' + str(y) + ') circle (2pt);\n')
             else:
                 ends = get_ends(x, y, cx, cy, length)
-                out.write('\draw[red, thick] (' + str(ends[0]) + ',' +                                                       str(ends[1]) + ') -- (' +                 
-                str(ends[2]) + ',' + str(ends[3]) + ');\n')
+                out.write('\draw[red, thick] (' + str(ends[0]) + ',' + str(ends[1]) + ') -- (' + str(ends[2]) + ',' + str(ends[3]) + ');\n')
             y += move_y
         x += move_x
     out.close()
@@ -48,8 +47,7 @@ def diff_eq_field(x1, x2, y1, y2, move_x, move_y, f, length, filename, show_unde
             if is_defined(f, x, y):
                 der = f(x, y)
                 ends = get_ends(x, y, der, -1, length)
-                out.write('\draw[red, thick] (' + str(ends[0]) + ',' +                                                       str(ends[1]) + ') -- (' +                 
-                str(ends[2]) + ',' + str(ends[3]) + ');\n')
+                out.write('\draw[red, thick] (' + str(ends[0]) + ',' + str(ends[1]) + ') -- (' + str(ends[2]) + ',' + str(ends[3]) + ');\n')
             else:
                 if show_undefined_points:
                     out.write('\u005C' + 'filldraw[blue] (' + str(x) + ',' + str(y) + ') circle (2pt);\n')
